@@ -14,6 +14,7 @@ sequelize
     username: { 
       type: DataTypes.STRING, 
       allowNull: true,
+      primaryKey:true
       
   },
     password: {
