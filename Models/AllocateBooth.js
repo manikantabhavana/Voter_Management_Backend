@@ -9,18 +9,10 @@ sequelize
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   });
-  const User=sequelize.define('User',{
+  const AllocateBooth=sequelize.define('AllocateBooth',{
     user_id:{
       type:DataTypes.INTEGER,
       primaryKey:true
-    },
-    user_name:{
-      type:DataTypes.STRING,
-      allowNull:true
-    },
-    password:{
-      type:DataTypes.STRING,
-      allowNull:false
     },
     name:{
       type:DataTypes.STRING,
@@ -30,30 +22,37 @@ sequelize
       type:DataTypes.STRING,
       allowNull:true
     },
-    email:{
-      type:DataTypes.STRING,
-      allowNull:true
-    },
-    age:{
-      type:DataTypes.INTEGER,
-      allowNull:true
-    },
-    gender:{
-      type: DataTypes.ENUM('Male', 'Female'),
-      allowNull:false
-    },
-    status:{
-      type:DataTypes.ENUM('Active','Deactive'),
-      allowNull:false,
-      defaultValue:'Active'
-    },
+    booth_no:{
+        type:DataTypes.INTEGER,
+        allowNull:true
+      },
+      ward:{
+        type:DataTypes.INTEGER,
+        allowNull:true
+      },
+      area:{
+        type:DataTypes.STRING,
+        allowNull:true
+      },
+      constituency:{
+        type:DataTypes.STRING,
+        allowNull:true
+      },
+      village:{
+        type:DataTypes.STRING,
+        allowNull:true
+      },
+      mandal:{
+        type:DataTypes.STRING,
+        allowNull:true
+      },
     date:{
         type:DataTypes.DATE,
         allowNull:true
     }
   },{
     timestamps:false,
-    tableName:"user_tabel"
+    tableName:"allocated_booth"
   })
 
-  module.exports = { User, sequelize };
+  module.exports = { AllocateBooth, sequelize };
